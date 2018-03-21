@@ -8,9 +8,8 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <g:layoutHead/>
 </head>
 <body>
@@ -34,8 +33,10 @@
             </form>
         </div>
     </nav>
-    <g:layoutBody/>
 
+    <div  ng-app="">
+        <g:layoutBody/>
+    </div>
     <div class="footer" role="contentinfo"></div>
 
     <div id="spinner" class="spinner" style="display:none;">
