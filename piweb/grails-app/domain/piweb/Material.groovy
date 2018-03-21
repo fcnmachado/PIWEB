@@ -1,6 +1,6 @@
 package piweb
 
-class Material {
+class Material implements Serializable{
 
     String name
 

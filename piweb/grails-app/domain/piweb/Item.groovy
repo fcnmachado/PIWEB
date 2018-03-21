@@ -1,6 +1,6 @@
 package piweb
 
-class Item {
+class Item implements Serializable{
 
     String name
     String author

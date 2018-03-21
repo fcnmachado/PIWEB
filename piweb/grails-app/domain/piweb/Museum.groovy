@@ -1,6 +1,6 @@
 package piweb
 
-class Museum {
+class Museum implements Serializable{
 
     String name
     String description

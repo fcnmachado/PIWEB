@@ -1,6 +1,6 @@
 package piweb
 
-class Image {
+class Image implements Serializable{
 
     String url
 
