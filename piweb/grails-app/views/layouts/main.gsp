@@ -10,6 +10,9 @@
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <asset:javascript src="controllers.js"/>
+
     <g:layoutHead/>
 </head>
 <body>
@@ -34,7 +37,7 @@
         </div>
     </nav>
 
-    <div  ng-app="">
+    <div  ng-app="piweb">
         <g:layoutBody/>
     </div>
     <div class="footer" role="contentinfo"></div>

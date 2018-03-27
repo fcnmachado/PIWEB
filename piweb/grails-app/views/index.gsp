@@ -5,10 +5,12 @@
     <title>Welcome to Grails</title>
 </head>
 <body>
-
-        <p>Input something in the input box:</p>
-        <p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-        <h1>Hello {{name}}</h1>
-
+    <div ng-controller="museumController">
+        First Name: <input type="text" ng-model="firstName"><br>
+        Last Name: <input type="text" ng-model="lastName"><br>
+        <br>
+        Full Name: {{firstName + " " + lastName}}
+    </div>
+    <g:link controller="login" action="auth">Entrar</g:link>
 </body>
 </html>
