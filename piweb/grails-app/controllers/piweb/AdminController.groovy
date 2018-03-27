@@ -2,5 +2,7 @@ package piweb
 
 class AdminController {
 
-    def index() { }
+    def index() {
+        render text: "PASSOU"
+    }
 }

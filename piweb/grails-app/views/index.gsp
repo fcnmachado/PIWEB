@@ -11,6 +11,6 @@
         <br>
         Full Name: {{firstName + " " + lastName}}
     </div>
-    <g:link controller="login" action="auth">Entrar</g:link>
+    <g:link controller="admin" action="index">Entrar</g:link>
 </body>
 </html>
