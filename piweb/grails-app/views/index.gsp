@@ -2,15 +2,17 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
 </head>
 <body>
     <div ng-controller="museumController">
-        First Name: <input type="text" ng-model="firstName"><br>
-        Last Name: <input type="text" ng-model="lastName"><br>
-        <br>
-        Full Name: {{firstName + " " + lastName}}
+        <g:each in="${museums}">
+            <p>
+                <h2>${it.name}</h2>
+                <h10>criado por ${it.user.username}</h10>
+            </p>
+            <g:img uri="${it.image.url}"/>
+            <h5>${it.description}</h5>
+        </g:each>
     </div>
-    <g:link controller="admin" action="index">Entrar</g:link>
 </body>
 </html>

@@ -13,5 +13,6 @@ class Museum implements Serializable{
         name nullable: false, unique: true
         description nullable: false
         image nullable: true
+        user nullable: false, unique: true
     }
 }

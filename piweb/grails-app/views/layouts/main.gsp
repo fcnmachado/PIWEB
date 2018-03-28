@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
-        <g:layoutTitle default="Grails"/>
+        <g:layoutTitle default="PIWEB - Felipe Cordeiro Nobre Machado"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
@@ -25,15 +25,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                %{--<li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
+                </li>--}%
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="/login/authenticate" method="POST">
-                <input class="form-control mr-sm-2" type="text" name="username" id="username" placeholder="usuario" aria-label="Search">
-                <input class="form-control mr-sm-2" type="password" name="password" id="password" placeholder="*****" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Entrar</button>
-            </form>
+
+            <g:link controller="admin" action="index">
+                <button class="btn btn-outline-success my-2 my-sm-0">Entrar</button>
+            </g:link>
         </div>
     </nav>
 
