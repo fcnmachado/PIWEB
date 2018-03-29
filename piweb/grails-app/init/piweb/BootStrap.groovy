@@ -12,7 +12,7 @@ class BootStrap {
         Museum museum = new Museum(name: "Museu do Inga", user: user, image: image, description: "O MAC Niterói completou em 2016 seus 20 anos de vida pública. Desde a sua inauguração foi imediatamente adotado como símbolo da cidade e, rapidamente, considerado uma das maravilhas arquitetônicas do mundo.")
         user.museum = museum
         user.save()
-        Role role = new Role(authority: 'ROLE_ADMIN')
+        Role role = new Role(authority: 'ROLE_USER')
         role.save()
         UserRole userRole = new UserRole(user: user, role: role)
         userRole.save()

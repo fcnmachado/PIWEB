@@ -9,7 +9,7 @@ class UserService {
         User newUser = new User(params)
         newUser.save()
         if(!newUser.hasErrors()) {
-            UserRole newUserRole = new UserRole(user: newUser, role: Role.findByAuthority('ROLE_ADMIN'))
+            UserRole newUserRole = new UserRole(user: newUser, role: Role.findByAuthority('ROLE_USER'))
             newUserRole.save()
         }
         return newUser

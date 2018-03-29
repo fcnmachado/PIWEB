@@ -29,10 +29,16 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>--}%
             </ul>
-
-            <g:link controller="admin" action="index">
-                <button class="btn btn-outline-success my-2 my-sm-0">Entrar</button>
-            </g:link>
+            <sec:ifNotLoggedIn>
+                <g:link controller="admin" action="index">
+                    <button class="btn btn-outline-success my-2 my-sm-0">Entrar</button>
+                </g:link>
+            </sec:ifNotLoggedIn>
+            <sec:ifLoggedIn>
+                <g:link controller="logout">
+                    <button class="btn btn-outline-fail my-2 my-sm-0">Sair</button>
+                </g:link>
+            </sec:ifLoggedIn>
         </div>
     </nav>
 

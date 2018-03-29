@@ -4,8 +4,9 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'piweb.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'piweb.UserRole'
 grails.plugin.springsecurity.authority.className = 'piweb.Role'
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	[pattern: '/admin/**',       access: ['ROLE_ADMIN']],
+	[pattern: '/admin/**',       access: ['ROLE_USER']],
 	[pattern: '/**',             access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
