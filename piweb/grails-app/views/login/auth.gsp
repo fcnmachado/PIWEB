@@ -113,6 +113,7 @@
             </p>
         </form>
     </div>
+    <g:link resource="cadastro">Cadastre-se</g:link>
 </div>
 <script>
     (function() {
