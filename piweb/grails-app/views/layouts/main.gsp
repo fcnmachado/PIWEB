@@ -30,11 +30,18 @@
                 </li>--}%
             </ul>
             <sec:ifNotLoggedIn>
-                <g:link controller="admin" action="index">
+                <g:link controller="user" action="show">
                     <button class="btn btn-outline-success my-2 my-sm-0">Entrar</button>
                 </g:link>
             </sec:ifNotLoggedIn>
             <sec:ifLoggedIn>
+                <g:if test="${user != null}">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <g:link controller="user" action="show" class="nav-link" href="#">${user?.name}<span class="sr-only">(current)</span></g:link>
+                        </li>
+                    <ul class="navbar-nav mr-auto">
+                </g:if>
                 <g:link controller="logout">
                     <button class="btn btn-outline-fail my-2 my-sm-0">Sair</button>
                 </g:link>

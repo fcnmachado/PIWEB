@@ -20,7 +20,7 @@ class User implements Serializable {
     boolean accountLocked
     boolean passwordExpired
 
-    static hasOne = [museum : Museum]
+    static hasMany = [museums : Museum]
 
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
@@ -29,10 +29,8 @@ class User implements Serializable {
     static constraints = {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
-        username nullable: false, blank: false, unique: true
-        name nullable: true, unique: false
-        lastName nullable: true, unique: false
-        museum unique: true, nullable: true
+        name nullable: true
+        lastName nullable: true
     }
 
     static mapping = {

@@ -5,7 +5,8 @@ class Museum implements Serializable{
     String name
     String description
     Image image
-    User user
+
+    static belongsTo = [user: User]
 
     static hasMany = [itens: Item]
 
@@ -13,6 +14,6 @@ class Museum implements Serializable{
         name nullable: false, unique: true
         description nullable: false
         image nullable: true
-        user nullable: false, unique: true
+        user nullable: false
     }
 }

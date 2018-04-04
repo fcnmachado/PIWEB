@@ -113,7 +113,7 @@
             </p>
         </form>
     </div>
-    <g:link resource="cadastro">Cadastre-se</g:link>
+    <g:link controller="user" action="create">Cadastre-se</g:link>
 </div>
 <script>
     (function() {

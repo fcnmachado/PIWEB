@@ -10,7 +10,7 @@
                 <h2>${it.name}</h2>
                 <h10>criado por ${it.user.username}</h10>
             </p>
-            <g:img uri="${it.image.url}"/>
+            <g:img uri="${it.image?.url}"/>
             <h5>${it.description}</h5>
         </g:each>
     </div>
