@@ -5,8 +5,8 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class MuseumService {
 
-    def createMuseum(Map params, User user) {
-        Museum newMuseum = new Museum(params + [user: user])
+    def createMuseum(Map params, User user, Image image) {
+        Museum newMuseum = new Museum(params + [user: user, image: image])
         newMuseum.save()
         if(!newMuseum.hasErrors()){
             user.addToMuseums(newMuseum)

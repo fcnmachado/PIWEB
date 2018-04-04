@@ -18,7 +18,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Meu Museu Online</a>
+        <g:link controller="museum" action="index">Meu Museu Online</g:link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,7 +38,7 @@
                 <g:if test="${user != null}">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <g:link controller="user" action="show" class="nav-link" href="#">${user?.name}<span class="sr-only">(current)</span></g:link>
+                            <g:link controller="user" action="show" class="nav-link">${user?.name}<span class="sr-only">(current)</span></g:link>
                         </li>
                     <ul class="navbar-nav mr-auto">
                 </g:if>

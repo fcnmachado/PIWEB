@@ -6,7 +6,7 @@ class BootStrap {
 
 
 
-        User user = new User(username: 'admin', password: 'admin')
+        User user = new User(username: 'admin@123', password: 'admin', name: "Felipe", lastName: "Machado")
         Image image = new Image(url: "https://media-cdn.tripadvisor.com/media/photo-s/0f/20/b8/5f/mac-visto-da-ponte-da.jpg")
         image.save()
         Museum museum = new Museum(name: "Museu do Inga", user: user, image: image, description: "O MAC Niterói completou em 2016 seus 20 anos de vida pública. Desde a sua inauguração foi imediatamente adotado como símbolo da cidade e, rapidamente, considerado uma das maravilhas arquitetônicas do mundo.")

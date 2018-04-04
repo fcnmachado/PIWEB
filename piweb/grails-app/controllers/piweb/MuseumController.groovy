@@ -3,6 +3,7 @@ package piweb
 class MuseumController {
 
     MuseumService museumService
+    ImageService imageService
 
     def index() {
         def museums = Museum.list()
@@ -14,8 +15,9 @@ class MuseumController {
     }
 
     def save() {
-        User user = User.findByUsername(getAuthenticatedUser().username)
-        Museum newMuseum = museumService.createMuseum(params, user)
+        User user = getAuthenticatedUser()
+        Image image = imageService.save(params.imageFile, params.name)
+        Museum newMuseum = museumService.createMuseum(params, user, image)
         if (newMuseum.hasErrors()) {
             render(view: 'create', model: [user: user])
         } else {
