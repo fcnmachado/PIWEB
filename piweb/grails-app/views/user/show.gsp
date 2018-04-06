@@ -8,9 +8,10 @@
     <div>
         <g:each in="${user.museums}">
             <p>
-            <h2>${it.name}</h2>
+            <h2> <g:link controller="museum" action="show" id="${it.id}">${it.name}</g:link> </h2>
             <h5>${it.description}</h5>
+            <g:img uri="${it.image?.url}"/>
         </g:each>
-</div>
+    </div>
 </body>
 </html>

@@ -18,7 +18,7 @@ class ImageService {
         }
 
         if (isImage) {
-            def path = "image/${id}/" + imageFile.originalFilename
+            def path = "image/${id}/${UUID.randomUUID().toString()}/" + imageFile.originalFilename
             String s3FileUrl = amazonS3Service.storeMultipartFile(path, imageFile)
 
             newImage.url = s3FileUrl
