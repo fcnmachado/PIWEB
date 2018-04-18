@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width = device-width, initial-scale = 1"/>
     <title>
         <g:layoutTitle default="PIWEB - Felipe Cordeiro Nobre Machado"/>
     </title>
@@ -17,46 +18,45 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <g:link controller="museum" action="index">Meu Museu Online</g:link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="container">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                %{--<li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>--}%
-            </ul>
-            <sec:ifNotLoggedIn>
-                <g:link controller="user" action="show">
-                    <button class="btn btn-outline-success my-2 my-sm-0">Entrar</button>
-                </g:link>
-            </sec:ifNotLoggedIn>
-            <sec:ifLoggedIn>
+        <div class="page-header">
+
+            <div>
+            <g:link controller="museum" action="list"><h1>Minhas Exposições Online</h1></g:link>
+            </div>
+            <div>
+                <sec:ifNotLoggedIn>
+                    <g:link controller="user" action="show">
+                        <button class="btn btn-outline-success my-2 my-sm-0">Entrar</button>
+                    </g:link>
+                </sec:ifNotLoggedIn>
+
+                <sec:ifLoggedIn>
                 <g:if test="${user != null}">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <g:link controller="user" action="show" class="nav-link">${user?.name}<span class="sr-only">(current)</span></g:link>
-                        </li>
-                    <ul class="navbar-nav mr-auto">
+                    <g:link controller="user" action="show" class="nav-link">${user?.name}<span class="sr-only">(current)</span></g:link>
                 </g:if>
                 <g:link controller="logout">
                     <button class="btn btn-outline-fail my-2 my-sm-0">Sair</button>
                 </g:link>
             </sec:ifLoggedIn>
+            </div>
+
         </div>
-    </nav>
 
-    <div  ng-app="piweb">
-        <g:layoutBody/>
-    </div>
-    <div class="footer" role="contentinfo"></div>
+        <div  class="jumbotron" ng-app="piweb">
+            <g:layoutBody/>
+        </div>
 
-    <div id="spinner" class="spinner" style="display:none;">
-        <g:message code="spinner.alt" default="Loading&hellip;"/>
+        <div class="footer" role="contentinfo"></div>
+
+        <div id="spinner" class="spinner" style="display:none;">
+            <g:message code="spinner.alt" default="Loading&hellip;"/>
+        </div>
+
     </div>
+
+
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

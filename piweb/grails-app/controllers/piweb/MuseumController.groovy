@@ -6,13 +6,18 @@ class MuseumController {
     ImageService imageService
     ItemService itemService
 
-    def index() {
-        def museums = Museum.list()
+    def list() {
+        def museums
+        if(params.museumName){
+            museums = Museum.findAllByNameLike("%${params.museumName}%")
+        }else {
+            museums = Museum.list()
+        }
         render(view: "../index", model: [museums: museums, user: getAuthenticatedUser()])
     }
 
     def create() {
-        respond new Museum()
+        render view:'create', model: [user: getAuthenticatedUser(), museum: new Museum()]
     }
 
     def save() {
@@ -28,6 +33,16 @@ class MuseumController {
 
     def show(Long id) {
         render view: "show", model: [museum: Museum.get(id)]
+    }
+
+    def edit(Long id) {
+        render view: "edit", model: [museum: Museum.get(id)]
+    }
+
+    def delete(Long id) {
+        def museum = Museum.get(id)
+        museum.delete(flush:true)
+        redirect (controller:'user', action: 'show')
     }
 
     def createItem(){
