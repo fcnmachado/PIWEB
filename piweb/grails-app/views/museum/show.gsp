@@ -13,8 +13,9 @@
     <div>
     <g:each in="${museum.itens}" var="item">
         <p></p>
-        <span>${item.name}</span>
+        ${item.name}
         <g:img uri="${item.images[0]?.url}"/> 
+        ${item.description}
     </g:each>
 </div>
 </body>

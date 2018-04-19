@@ -14,9 +14,10 @@
     <g:img uri="${museum.image?.url}"/>
     <h5>${museum.description}</h5>
     <g:each in="${museum.itens}" var="item">
-        <g:each in="${item.images}" var="image">
-            <g:img uri="${image?.url}"/>
-        </g:each>
+        <p></p>
+        ${item.name}
+        <g:img uri="${item.images[0]?.url}"/> 
+        ${item.description}
     </g:each>
 </div>
 </body>
