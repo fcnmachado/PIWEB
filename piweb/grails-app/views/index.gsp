@@ -4,28 +4,78 @@
     <meta name="layout" content="main"/>
 </head>
 <body>
-    <div ng-controller="museumController">
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+            <div class="container">
+                <h1 class="masthead-heading mb-0">Seu Museu Favorito</h1>
+                <h2 class="masthead-subheading mb-0">Sem Sair de Casa</h2>
+                <a id="seealso" href="#museums" class="btn btn-primary btn-xl rounded-pill mt-5">Veja Mais</a>
+            </div>
+        </div>
+    </header>
 
-        <div class="-search">
+    <div id="museums">
+        <div class="museum-search">
             <g:form controller="museum" action="list">
-                Nome da exposiçao<input type="text" name="museumName">
-                <g:submitButton name="Buscar"/>
+                <input type="text" name="museumName" placeholder="Buscar Exposição" class="text-input" value="${params.museumName}">
+                <button type="submit" name="Buscar" class="btn-primary btn">BUSCAR</button>
+
+                <g:if test="${params.museumName}">
+                    <p class="results-count-text">
+                        ${museums?.size()} resultados encontrados para "${params.museumName}"
+                    </p>
+                </g:if>
             </g:form>
         </div>
-        <div class="row">
-            <g:each in="${museums}">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <h1>${it.name}</h1>
-                <h10>criado por ${it.user.username}</h10>
-                <g:link controller="museum" action="show" id="${it.id}">
-                    <img class="img-thumbnail" src="${it.image?.url}"/>
-                </g:link>
-                <h5>${it.description}</h5>
-            </div>
-            </g:each>
-        </div>
 
+        <g:if test="${!museums?.size()}">
+            <p class="no-results">
+                <strong> =( </strong>
+                Nenhum Museu Encontrado.
+            </p>
+        </g:if>
+
+        <g:each in="${museums}" status="i" var="it">
+            <section>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 ${ (i % 2) == 0 ? 'order-lg-2' : ''}">
+                            <div class="p-5">
+                                <g:link controller="museum" action="show" id="${it.id}">
+                                    <img src="${it.image?.url}" class="img-fluid rounded-circle muesum-img" alt="${it.name}" />
+                                </g:link>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 ${ (i % 2) == 0 ? 'order-lg-1' : ''}">
+                            <div class="p-5">
+                                <g:link controller="museum" action="show" id="${it.id}" class="museum-name">
+                                    <h2 class="display-4">${it.name}</h2>
+                                </g:link>
+                                <p>${it.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </g:each>
     </div>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#seealso").on('click', function(event) {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 120
+                }, 800, function(){ });
+            });
+         });
+
+        <g:if test="${params.museumName}">
+            setTimeout(function () {
+                $("#seealso").click()
+            }, 100);
+        </g:if>
+    </script>
 </body>
 </html>
