@@ -208,3 +208,24 @@ a:hover {
     color: #808080;
     font-style: italic;
 }
+
+.main-area{
+    margin-top: 130px;
+    margin-bottom: 2em;
+}
+.main-area > header{
+    padding: 1em 0;
+}
+.main-area > header > h1{
+    border-bottom: 2px solid #ffc107;
+    text-transform: uppercase;
+    text-align: left;
+    color: #ffc107;
+}
+.main-area > header > h2{
+    font-weight: normal !important;
+    font-size: 1.2em;
+    text-align: left;
+    padding: 1em;
+    padding-left: 3em;
+}
