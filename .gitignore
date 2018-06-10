@@ -84,4 +84,19 @@ fabric.properties
 # modules.xml
 
 piweb/grails-app/conf/application.yml
+grails-app/conf/application.yml
 application.yml
+
+Thumbs.db
+.DS_Store
+.gradle
+build/
+out/
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+/bin/
