@@ -30,6 +30,7 @@ repositories {
 }
 
 dependencies {
+    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
@@ -82,9 +83,6 @@ tasks.withType(Test) {
     systemProperty "geb.env", System.getProperty('geb.env')
     systemProperty "webdriver.chrome.driver", System.getProperty('webdriver.chrome.driver')
     systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
-}
-
-task stage {
 }
 
 assets {
