@@ -14,6 +14,6 @@ class Item implements Serializable{
     static constraints = {
         name nullable: false
         author nullable: true
-        description nullable: true
+        description nullable: true, type: "text"
     }
 }

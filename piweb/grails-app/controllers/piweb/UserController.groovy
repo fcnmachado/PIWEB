@@ -18,8 +18,7 @@ class UserController {
             render(view: 'create', model: [user: newUser])
         } else {
             springSecurityService.reauthenticate newUser.username
-            redirect "/admin"
-            //render(view: "../user/show", model: [user: newUser])
+            redirect controller: "museum", action: "list"
         }
     }
 

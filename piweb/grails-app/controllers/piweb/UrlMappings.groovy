@@ -12,6 +12,7 @@ class UrlMappings {
         "/admin"(controller: "museum", action: "list")
         "/admin/museun/$id"(controller: "museum", action: "edit")
         "/admin/museum/form"(controller: "museum", action: "create")
+        "/admin/museum/save"(controller: "museum", action: 'save')
 
         "/museum/$id"(controller: "catalog", action: "museum")
         "/"(controller: 'catalog', action: 'home')
