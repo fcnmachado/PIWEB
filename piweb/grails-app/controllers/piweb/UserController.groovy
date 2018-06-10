@@ -18,12 +18,9 @@ class UserController {
             render(view: 'create', model: [user: newUser])
         } else {
             springSecurityService.reauthenticate newUser.username
-            render(view: "../user/show", model: [user: newUser])
+            redirect "/admin"
+            //render(view: "../user/show", model: [user: newUser])
         }
-    }
-
-    def show(){
-        render(view: 'show', model: [user: getAuthenticatedUser()])
     }
 
 }

@@ -6,14 +6,13 @@ class MuseumController {
     ImageService imageService
     ItemService itemService
 
-    def list() {
-        def museums
-        if(params.museumName){
-            museums = Museum.findAllByNameLike("%${params.museumName}%")
-        }else {
-            museums = Museum.list()
+    def list(){
+        if(!getAuthenticatedUser()){
+            redirect controller: "login", action: "auth"
         }
-        render(view: "../index", model: [museums: museums, user: getAuthenticatedUser()])
+        else {
+            render(view: 'list', model: [user: getAuthenticatedUser()])
+        }
     }
 
     def create() {
@@ -23,16 +22,26 @@ class MuseumController {
     def save() {
         User user = getAuthenticatedUser()
         Image image = imageService.save(params.imageFile, params.name)
-        Museum newMuseum = museumService.createMuseum(params, user, image)
+        Museum newMuseum = museumService.save(params, user, image)
         if (newMuseum.hasErrors()) {
             render(view: 'create', model: [user: user])
         } else {
-            render(view: "../user/show", model: [user: user])
+            render(view: "list", model: [user: user])
         }
     }
 
-    def show(Long id) {
-        render view: "show", model: [museum: Museum.get(id)]
+    def update(Museum museum) {
+        User user = getAuthenticatedUser()
+        Image image
+        if(params.imageFile?.filename != ""){
+            museum.image = imageService.save(params.imageFile, museum.name)
+        }
+        museumService.update(museum)
+        if (museum.hasErrors()) {
+            render(view: 'edit', model: [museum: museum])
+        } else {
+            render(view: "list", model: [user: user])
+        }
     }
 
     def edit(Long id) {
@@ -42,23 +51,6 @@ class MuseumController {
     def delete(Long id) {
         def museum = Museum.get(id)
         museum.delete(flush:true)
-        redirect (controller:'user', action: 'show')
+        redirect (controller:'museum', action: 'list')
     }
-
-    def createItem(){
-        Museum museum = Museum.get(params.museumId)
-        render view: "../item/create", model: [item: new Item(), museum: museum]
-    }
-
-    def saveItem(){
-        Museum museum = Museum.get(params.museumId)
-        Image image = imageService.save(params.imageFile, params.name)
-        Item item = itemService.saveItem(params, museum, image)
-        if(item.hasErrors()) {
-            render view: "../item/create", model: [item: new Item()]
-        }else {
-            redirect action: "show", id: museum.id
-        }
-    }
-
 }

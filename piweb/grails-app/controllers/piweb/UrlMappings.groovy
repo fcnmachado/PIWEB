@@ -9,7 +9,12 @@ class UrlMappings {
             }
         }
 
-        "/"(controller: 'museum', action: 'list')
+        "/admin"(controller: "museum", action: "list")
+        "/admin/museun/$id"(controller: "museum", action: "edit")
+        "/admin/museum/form"(controller: "museum", action: "create")
+
+        "/museum/$id"(controller: "catalog", action: "museum")
+        "/"(controller: 'catalog', action: 'home')
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

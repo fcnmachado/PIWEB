@@ -208,3 +208,49 @@ a:hover {
     color: #808080;
     font-style: italic;
 }
+
+.main-area{
+    margin-top: 130px;
+    margin-bottom: 2em;
+}
+.main-area > header{
+    padding: 1em 0;
+}
+.main-area > header > h1{
+    border-bottom: 2px solid #d39e00;
+    text-transform: uppercase;
+    text-align: left;
+    color: #d39e00;
+}
+.main-area > header > h2{
+    font-weight: normal !important;
+    font-size: 1.2em;
+    text-align: left;
+    padding: 1em;
+    padding-left: 3em;
+}
+.main-area > header > h3{
+    font-size: .9em;
+    text-align: right;
+    padding: 1em;
+}
+
+body:after {
+    content: "";
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-image: url(/assets/background.jpg);
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: -1;
+    background-size: cover;
+    box-sizing: border-box;;
+}
+
+.museum-panel-list img {
+    width: 150px;
+    height: 150px;
+}

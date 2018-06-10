@@ -27,7 +27,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
-            <g:link class="navbar-brand" controller="museum" action="list">
+            <g:link class="navbar-brand" controller="catalog" action="home">
                 <asset:image src="piweb-logo.png" alt="PI Web" />
             </g:link>
 
@@ -38,7 +38,7 @@
                 <ul class="navbar-nav ml-auto">
                     <sec:ifNotLoggedIn>
                         <li class="nav-item">
-                            <g:link controller="user" action="show" class="nav-link">
+                            <g:link url="/admin" class="nav-link">
                                 Entrar
                             </g:link>
                         </li>
@@ -48,6 +48,23 @@
                             </g:link>
                         </li>
                     </sec:ifNotLoggedIn>
+                    <sec:ifLoggedIn>
+                        <li class="nav-item">
+                            <g:link controller="catalog" action="home" class="nav-link">
+                                Home
+                            </g:link>
+                        </li>
+                        <li class="nav-item">
+                            <g:link controller="museum" action="list" class="nav-link">
+                                Painel Administrativo
+                            </g:link>
+                        </li>
+                        <li class="nav-item">
+                            <g:link controller="logout" class="nav-link">
+                                Logout
+                            </g:link>
+                        </li>
+                    </sec:ifLoggedIn>
                 </ul>
             </div>
         </div>
